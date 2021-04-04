@@ -25,5 +25,31 @@ Note: This example will only work in Desktop scenarios
 
 * Minimize the app you just launched to the taskbar. Click the Launch App button to bring the minimized application to the forground. Note: Some apps will instead launch a new instance of the app.
 
+## Discussion
 
+This example launches a Win32 helper app to do the following tasks:
+
+1. Enumerate all apps installed on the user's computer
+
+1. Launch an app
+
+This helper app is launched by the UWP app using the following protocols:
+
+### Enumerate apps
+
+com.stammen.applauncherextension:?"action=getApplications
+
+### Launch an App
+
+com.stammen.applauncherextension:?"action=launchApplication&name=PowerPoint"
+
+Once the AppLauncher app has been deployed on you computer, you can also test it out from the Command Prompt:
+
+```console
+start com.stammen.applauncherextension:?"action=getApplications
+```
+
+```console
+start com.stammen.applauncherextension:?"action=launchApplication&name=PowerPoint"
+```
 
