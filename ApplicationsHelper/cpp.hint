@@ -1,0 +1,2 @@
+#define APPLICATIONSHELPER_API __declspec(dllexport)
+#define APPLICATIONSHELPER_API __declspec(dllimport)

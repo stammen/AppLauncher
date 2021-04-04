@@ -1,0 +1,9 @@
+LIBRARY
+
+EXPORTS
+	GetInstalledApplicationNames
+	UpdateInstalledApplications
+	LaunchInstalledApplication
+	
+	
+

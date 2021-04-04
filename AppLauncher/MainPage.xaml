@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="AppLauncher.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppLauncher"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="getApplications" Content="Get Applications" Click="GetApplications_Click"/>
+                <ComboBox x:Name="applicationsComboBox" SelectionChanged="ComboBox_SelectionChanged" Margin="10">
+                    <ComboBoxItem IsSelected="True">N/A</ComboBoxItem>
+                </ComboBox>
+                <Button Content="Launch App" Click="LaunchApp_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
