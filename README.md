@@ -37,7 +37,7 @@ This helper app is launched by the UWP app using the following protocols:
 
 ### Enumerate apps
 
-    com.stammen.applauncherextension:?"action=getApplications
+    com.stammen.applauncherextension:?"action=getApplications"
 
 ### Launch an App
 
