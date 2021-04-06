@@ -37,11 +37,11 @@ This helper app is launched by the UWP app using the following protocols:
 
 ### Enumerate apps
 
-com.stammen.applauncherextension:?"action=getApplications
+    com.stammen.applauncherextension:?"action=getApplications"
 
 ### Launch an App
 
-com.stammen.applauncherextension:?"action=launchApplication&name=PowerPoint"
+    com.stammen.applauncherextension:?"action=launchApplication&name=PowerPoint"
 
 Once the AppLauncher app has been deployed on you computer, you can also test it out from the Command Prompt:
 
