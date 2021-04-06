@@ -45,6 +45,7 @@ namespace AppLauncherExtension
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(0, 0);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.ShowInTaskbar = false;
             this.Shown += new System.EventHandler(this.OnLoaded);
             //this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SystemControl_FormClosing);
