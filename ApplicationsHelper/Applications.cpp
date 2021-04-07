@@ -244,11 +244,14 @@ HRESULT Applications::LaunchApplicationImp(const std::wstring& name)
                         if (appName == name)
                         {
                             found = true;
-                            hr = LaunchAppFromShortCut(psi);
-                            if (hr != S_OK) // We may be on Windows 10S. We can only launch UWP apps
+
+                            auto aumid = GetParsingPath(psi2);
+                            hr = LaunchUWPApp(aumid->Data());
+
+                            if (hr != S_OK) // Win32 desktop app
                             {
-                                auto aumid = GetParsingPath(psi2);
-                                hr = LaunchUWPApp(aumid->Data());
+                                hr = LaunchAppFromShortCut(psi);
+                                ;
                             }
                         }
                     }
