@@ -59,7 +59,7 @@ HRESULT LaunchUWPApp(LPCWSTR aumid)
             continue;
         }
 
-        auto appListEntry = p->GetAppListEntries()->GetAt(0);
+        auto appListEntry = appListEntries->GetAt(0);
 
         if (appListEntry->AppUserModelId == id)
         {
