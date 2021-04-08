@@ -50,7 +50,10 @@ HRESULT LaunchUWPApp(LPCWSTR aumid)
     {
         std::wcout << "DisplayName:" << p->DisplayName->Data() << std::endl;
 
-        auto appListEntries = p->GetAppListEntries();
+        auto appListTask = create_task(p->GetAppListEntriesAsync());
+        appListTask.wait();
+        auto appListEntries = appListTask.get();
+
         if (appListEntries == nullptr || appListEntries->Size == 0)
         {
             continue;
