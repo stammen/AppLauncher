@@ -52,7 +52,7 @@
   <PropertyGroup>
     <ProjectGuid>2c923732-421c-4f5e-bf1b-7592de72bf6c</ProjectGuid>
     <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
     <EntryPointProjectUniqueName>..\AppLauncher\AppLauncher.csproj</EntryPointProjectUniqueName>
@@ -127,8 +127,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(SolutionDir)\$(PlatformName)\$(Configuration)\ApplicationsHelper.dll">
-    <Link>AppLauncherExtension\ApplicationsHelper.dll</Link>
-    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-  </Content>
+      <Link>AppLauncherExtension\ApplicationsHelper.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

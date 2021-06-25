@@ -149,29 +149,23 @@ HRESULT LaunchAppFromShortCut(IShellItem* psi)
                     // launch the app using its newly created shortcut
                     SHELLEXECUTEINFO sxi = { 0 };
                     sxi.cbSize = sizeof(sxi);
-                    sxi.nShow = SW_SHOWNORMAL;
-                    sxi.lpVerb = _T("open");
-                    sxi.lpFile = path->Data();
-                    sxi.fMask = SEE_MASK_NOCLOSEPROCESS | SEE_MASK_NOASYNC | SEE_MASK_FLAG_NO_UI | SEE_MASK_WAITFORINPUTIDLE;
+                    sxi.nShow = SW_HIDE;
+                    sxi.lpVerb = NULL;
+                    //sxi.fMask = SEE_MASK_NOASYNC | SEE_MASK_FLAG_NO_UI | SEE_MASK_WAITFORINPUTIDLE;
+
+                    sxi.lpFile = _T("cmd.exe");
+                    std::wstring cmd;
+                    cmd.append(L"/Q /c start ");
+                    cmd.append(path->Data());
+                    cmd.append(L"& exit");
+                    sxi.lpParameters = cmd.c_str();
+
                     if (!ShellExecuteEx(&sxi))
                     {
                         psl->Release();
                         return GetLastError();
                     }
 
-                    if (sxi.hProcess != NULL)
-                    {
-                        WINDOWPROCESSINFO info;
-                        info.pid = GetProcessId(sxi.hProcess); 
-                        info.hwnd = 0;
-                        //AllowSetForegroundWindow(info.pid);
-                        EnumWindows(OnGetWindowByProcess, (LPARAM)&info);
-                        if (info.hwnd != 0)
-                        {
-                            //SetForegroundWindow(info.hwnd);
-                            //SetActiveWindow(info.hwnd);
-                        }
-                    }
                 }
             }
         }
@@ -208,7 +202,8 @@ Platform::String^ GetParsingPath(IShellItem2* psi2)
 HRESULT Applications::LaunchApplication(const std::wstring& name)
 {
     auto result = LaunchApplicationImp(name);
-
+    Sleep(1000);
+#if 1
     // simulate press of ALT key to clear ForeGroundWindow lock
     INPUT inputs[2];
     ZeroMemory(inputs, sizeof(inputs));
@@ -218,7 +213,7 @@ HRESULT Applications::LaunchApplication(const std::wstring& name)
     inputs[1].ki.wVk = VK_MENU;
     inputs[1].ki.dwFlags = KEYEVENTF_KEYUP;
     UINT uSent = SendInput(ARRAYSIZE(inputs), inputs, sizeof(INPUT));
-
+#endif
     return result;
 }
 
